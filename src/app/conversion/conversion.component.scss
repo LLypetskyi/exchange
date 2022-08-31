@@ -1,0 +1,13 @@
+.conversion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    .left-field,
+    .right-field {
+        height: 40px;
+        input {
+            border-radius: 5%;
+        }
+    }
+}

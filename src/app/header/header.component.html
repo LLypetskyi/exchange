@@ -1,0 +1,17 @@
+<div class="header-content">
+  <div>
+    <img src="../../assets/images/logo-10.jpg" alt="currency converter logo" class="converter-logo" />
+  </div>
+  <div class="currencies">
+    <h5>Курс валют по відношенню до гривні станом на   {{data | date: 'dd-MM-yyyy' }}</h5>
+    <br>
+    <div *ngIf="currencies$ | async as currencies">
+      <div *ngFor="let currency of currencies | currencyFilter">
+        <p>{{ currency.txt }} </p>
+        <p>{{ currency.cc }}</p>
+        <h6>{{ currency.rate | number:'2.1-2'}} UAH</h6>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

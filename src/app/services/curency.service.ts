@@ -11,8 +11,6 @@ import { map } from 'rxjs/operators';
 export class CurencyService {
   constructor(private http: HttpClient) { }
 
-  
-
   public getExchangeRate(): Observable<ICurrency[]> {
     const url =
       'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=20220831&json';

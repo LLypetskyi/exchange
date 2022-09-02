@@ -12,14 +12,12 @@ import { CurrencyDataService } from '../services/currency-data-service.service';
 export class HeaderComponent implements OnInit {
 
   currencies$!: Observable<ICurrency[]>;
-
   data = new Date();
 
-  constructor(private currencyDataService: CurrencyDataService) { }
+  constructor(private currencyDataService: CurrencyDataService) {}
 
   ngOnInit(): void {
     this.currencies$ = this.currencyDataService.currencies;
   }
-
 
 }

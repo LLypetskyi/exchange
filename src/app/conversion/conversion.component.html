@@ -1,16 +1,37 @@
-
 <div class="conversion-content">
   <form class="left-field">
-    <input type="text" size="40" value placeholder="Введіть суму для конвертації" />
-    <select name="select">
-      <option value="value1">Значение 1</option>
-      <option value="value2">Значение 2</option>
-      <option value="value3">Значение 3</option>
+    <input
+      type="text"
+      size="40"
+      value
+      placeholder="Введіть суму для конвертації"
+      [(ngModel)]="selectedValue"
+    />
+    <select
+      name="select"
+      *ngIf="currencies$ | async as currencies"
+      [(ngModel)]="selectedCarrency"
+    >
+      <option
+        *ngFor="let currency of currencies | currencyFilter"
+        [value]="currency.cc"
+      >
+        {{ currency.cc }}
+      </option>
     </select>
+    <div class="rez">
+ 
+      <p>Отримаєте - {{ +(selectedValue * selectedCarrency?.rate) }} - грн.</p>
+    </div>
   </form>
 
   <form class="right-field">
-    <input type="text" size="40" value placeholder="Введіть суму для конвертації" />
+    <input
+      type="text"
+      size="40"
+      value
+      placeholder="Введіть суму для конвертації"
+    />
     <select name="select">
       <option value="value1">Значение 1</option>
       <option value="value2">Значение 2</option>

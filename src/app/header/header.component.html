@@ -1,10 +1,11 @@
 <div class="header-content">
-  <div>
-    <img src="../../assets/images/logo-10.jpg" alt="currency converter logo" class="converter-logo" />
+  <div class="logo-content">
+    <img src="../../assets/images/logo-10.jpg" alt="currency converter logo" class="logo" />
   </div>
-  <div class="currencies">
-    <h5>Курс валют по відношенню до гривні станом на   {{data | date: 'dd-MM-yyyy' }}</h5>
+  <div class="currencies-content">
+    <h5>Курс валют по відношенню до гривні станом на {{data | date: 'dd-MM-yyyy' }}</h5>
     <br>
+    <hr>
     <div *ngIf="currencies$ | async as currencies">
       <div *ngFor="let currency of currencies | currencyFilter">
         <p>{{ currency.txt }} </p>

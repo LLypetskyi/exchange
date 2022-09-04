@@ -10,15 +10,19 @@ import { Observable } from 'rxjs';
 })
 export class ConversionComponent implements OnInit {
   currencies$!: Observable<ICurrency[]>;
-
-  selectedValue: number = 1;
-  selectedCarrency!: any;
-
-  rez: number = 1;
+  selectedCurrency: string | undefined;
+  amount: string = '0';
 
   constructor(private currencyDataService: CurrencyDataService) { }
 
   ngOnInit(): void {
     this.currencies$ = this.currencyDataService.currencies;
+    this.currencies$.subscribe((currencies) => this.selectedCurrency = currencies[0]?.cc);
   }
+ 
+  getCurrencyRate(currencies: ICurrency[]): number {
+    let foundedCurrency = currencies.find((currency) => currency.cc == this.selectedCurrency);
+    return foundedCurrency?.rate ?? 0;
+  }
+
 }

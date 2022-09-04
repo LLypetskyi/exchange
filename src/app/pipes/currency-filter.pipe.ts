@@ -5,7 +5,7 @@ import { ICurrency } from '../interfaces/currency';
   name: 'currencyFilter'
 })
 export class CurrencyFilterPipe implements PipeTransform {
-  findArr: string[] = ['PLN', 'USD', 'EUR', 'GBP'];
+  findArr: string[] = ['PLN', 'USD', 'EUR', 'GBP','UAH'];
   transform(value: ICurrency[]) {
     return value.filter(item => this.findArr.includes(item.cc));
   }

@@ -1,7 +1,21 @@
-.converter-logo {
+.header-content {
     display: flex;
-    width: 300px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-    border-radius: 7px;
+    .logo-content {
+        display: flex;
+        margin-top: 0;
+        margin-left: 0;
+        width: 30%;
+        .logo {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+    .currencies-content {
+        width: 70%;
+        margin: 30px;
+        > h5 {
+            text-align: center;
+        }
+    }
 }

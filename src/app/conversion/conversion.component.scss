@@ -1,13 +1,25 @@
 .conversion-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
     margin-top: 20px;
-    .left-field,
-    .right-field {
-        height: 40px;
-        input {
-            border-radius: 5%;
-        }
+}
+.conversion {
+    input[type=text],
+    select {
+        width: 400px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
     }
+    input[type=text]{
+        width: 40%;
+    }
+    select {
+         width: 10%;
+    }
+
 }

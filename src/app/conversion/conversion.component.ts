@@ -17,13 +17,12 @@ export class ConversionComponent implements OnInit {
 
   ngOnInit(): void {
     this.currencies$ = this.currencyDataService.currencies;
-    this.currencies$.subscribe((currencies) => this.selectedCurrency = currencies[0]?.cc);
+    // this.currencies$.subscribe((currencies) => this.selectedCurrency = currencies[0]?.cc);
   }
  
   getCurrencyRate(currencies: ICurrency[]): number {
     let foundedCurrency = currencies.find((currency) => currency.cc == this.selectedCurrency);
     return foundedCurrency?.rate ?? 0;
   }
-
 
 }

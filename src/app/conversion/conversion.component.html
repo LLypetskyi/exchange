@@ -1,34 +1,38 @@
 <div class="conversion-content">
-
   <div class="left-part">
-    <div *ngIf="currencies$ | async as currencies" class="conversion">
-      <input type="text" [(ngModel)]="amount" placeholder="Введіть суму для обміну" />
-      <p> оберіть валюту для обміну - </p>
+    <div class="conversion" *ngIf="currencies$ | async as currencies" >
+      <input type="text" placeholder="Введіть суму для обміну" [(ngModel)]="amount" />
+      <p>оберіть валюту для обміну -</p>
       <select *ngIf="currencies$ | async as currencies" [(ngModel)]="selectedCurrency">
         <option *ngFor="let currency of currencies | currencyFilter" [value]="currency.cc">
           {{ currency.cc }}
         </option>
       </select>
       <div class="rez">
-        <p>Ви отримаєте - {{ +amount * getCurrencyRate(currencies) |number:'1.1-2'}} - грн.</p>
+        <p>
+          Ви отримаєте -
+          {{ +amount * getCurrencyRate(currencies) | number: "1.1-2" }} - грн.
+        </p>
       </div>
     </div>
   </div>
-  <br>
+  <br />
 
   <div class="right-part">
-    <div *ngIf="currencies$ | async as currencies" class="conversion">
-      <input type="text" [(ngModel)]="amount" placeholder="Введіть суму для обміну">
-      <p> оберіть валюту для обміну - </p>
-      <select *ngIf="currencies$ | async as currencies" [(ngModel)]="selectedCurrency" >
+    <div class="conversion" *ngIf="currencies$ | async as currencies">
+      <input type="text" placeholder="Введіть суму для обміну" [(ngModel)]="amount" />
+      <p>оберіть валюту для обміну -</p>
+      <select *ngIf="currencies$ | async as currencies" [(ngModel)]="selectedCurrency">
         <option *ngFor="let currency of currencies | currencyFilter" [value]="currency.cc">
           {{ currency.cc }}
         </option>
       </select>
       <div class="rez">
-        <p>Ви отримаєте - {{ +amount * getCurrencyRate(currencies) |number:'1.1-2'}} - грн.</p>
+        <p>
+          Ви отримаєте -
+          {{ +amount * getCurrencyRate(currencies) | number: "1.1-2" }} - грн.
+        </p>
       </div>
     </div>
   </div>
-
 </div>

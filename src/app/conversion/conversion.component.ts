@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class ConversionComponent implements OnInit {
   currencies$!: Observable<ICurrency[]>;
   selectedCurrency: string | undefined;
-  amount: string = '0';
+  amount: string = '';
 
   constructor(private currencyDataService: CurrencyDataService) { }
 
@@ -24,5 +24,6 @@ export class ConversionComponent implements OnInit {
     let foundedCurrency = currencies.find((currency) => currency.cc == this.selectedCurrency);
     return foundedCurrency?.rate ?? 0;
   }
+
 
 }

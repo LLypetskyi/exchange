@@ -1,8 +1,9 @@
 <div class="conversion-content">
+
   <div class="left-part">
-    <p>Валютний калькулятор : (введіть суму та оберіть валюту для обміну)</p>
     <div *ngIf="currencies$ | async as currencies" class="conversion">
-      <input type="text" [(ngModel)]="amount">
+      <input type="text" [(ngModel)]="amount" placeholder="Введіть суму для обміну" />
+      <p> оберіть валюту для обміну - </p>
       <select *ngIf="currencies$ | async as currencies" [(ngModel)]="selectedCurrency">
         <option *ngFor="let currency of currencies | currencyFilter" [value]="currency.cc">
           {{ currency.cc }}
@@ -16,10 +17,10 @@
   <br>
 
   <div class="right-part">
-    <p>Валютний калькулятор : (введіть суму та оберіть валюту для обміну)</p>
     <div *ngIf="currencies$ | async as currencies" class="conversion">
-      <input type="text" [(ngModel)]="amount">
-      <select *ngIf="currencies$ | async as currencies" [(ngModel)]="selectedCurrency">
+      <input type="text" [(ngModel)]="amount" placeholder="Введіть суму для обміну">
+      <p> оберіть валюту для обміну - </p>
+      <select *ngIf="currencies$ | async as currencies" [(ngModel)]="selectedCurrency" >
         <option *ngFor="let currency of currencies | currencyFilter" [value]="currency.cc">
           {{ currency.cc }}
         </option>
@@ -29,4 +30,5 @@
       </div>
     </div>
   </div>
+
 </div>
